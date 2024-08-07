@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "healt-plus", "healt-plus\healt-plus.csproj", "{9013F52A-B29D-49CC-9FDD-9C24BEF6BC22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9013F52A-B29D-49CC-9FDD-9C24BEF6BC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9013F52A-B29D-49CC-9FDD-9C24BEF6BC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9013F52A-B29D-49CC-9FDD-9C24BEF6BC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9013F52A-B29D-49CC-9FDD-9C24BEF6BC22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1408D2E5-90C5-455A-8733-72B8C2275FAB}
+	EndGlobalSection
+EndGlobal

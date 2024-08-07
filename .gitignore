@@ -1,0 +1,17 @@
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+mono_crash.*
+
+.idea/
+
+.vscode/
+
+node_modules/
+
+.vs/
+
+dist/

@@ -1,0 +1,6 @@
+@healt_plus_HostAddress = http://localhost:5203
+
+GET {{healt_plus_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
