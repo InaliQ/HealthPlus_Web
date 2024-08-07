@@ -1,0 +1,148 @@
+<div class="section">
+    <h2 class="title has-text-centered is-2">Registro de enfermeros</h2><br>
+
+    <div class="box">
+        <h3 class="subtitle has-text-centered">Datos Personales</h3>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Nombre</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Nombre" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarNombre">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Primer apellido</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Primer apellido" 
+                        [(ngModel)]="apaterno" [ngModelOptions]="{standalone: true}" required>
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarpApellido">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Segundo apellido</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Segundo apellido" [(ngModel)]="amaterno" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarsApellido">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Fecha de nacimiento</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="date" 
+                        [(ngModel)]="fecha_nac"
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarFecha">Este campo es obligatorio.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Teléfono</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Teléfono" [(ngModel)]="telefono" 
+                            (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="10">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarTel">Este campo es obligatorio.</p>
+                    <p class="help is-danger" *ngIf="ValidarLongTel">El número de teléfono debe tener 10 dígitos.</p>
+                </div>
+            </div>
+            
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Calle</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Calle" [(ngModel)]="calle" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarCalle">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Número</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Número" [(ngModel)]="numero" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarNum">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Colonia</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Colonia" [(ngModel)]="colonia" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarCol">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Código Postal</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="C.P." [(ngModel)]="cp"  
+                            (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="5">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarCP">Este campo es obligatorio.</p>
+                    <p class="help is-danger" *ngIf="ValidarLongCP">El código postal debe tener 5 dígitos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3 class="subtitle has-text-centered">Datos de Trabajo</h3>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Título</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" placeholder="Título" [(ngModel)]="titulo" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarTitulo">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Horario</label>
+                    <div class="control">
+                        <div class="select is-rounded">
+                            <select [(ngModel)]="idHorarioo" name="horario" (change)="changeHorario($event)">
+                                <option *ngFor="let h of listaHorarios" [value]="h.idHorario">
+                                    {{ h.horaInicio }} a {{ h.horaFin}}
+                                </option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+            <button class="button is-primary is-rounded" 
+                    (click)="guardarOEditarEnfermero()">{{ isEdit ? 'Editar' : 'Guardar' }}</button>
+        </div>
+    </div>
+</div>

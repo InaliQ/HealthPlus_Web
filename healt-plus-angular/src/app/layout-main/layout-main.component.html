@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<section class="mb-0">
+  <nav class="navbar has-background-white" style="height: 80px; padding: 0px;">
+    <div class="navbar-brand is-align-items-center" >
+      <img src="assets/images/logo.png" alt="Logo" width="40px" height="80px" style="margin-left: 30px;">
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExampleTransparentExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    
+    <div id="navbarExampleTransparentExample" class="navbar-menu" id="nav">
+      <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link is-size-6 has-text-weight-normal has-text-dark">Enfermeros</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/enfermeros">Registro de Enfermeros</a>
+            <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/verenfermeros">Ver Enfermeros</a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link is-size-6 has-text-weight-normal has-text-dark">Pacientes</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/pacientes">Registro Pacientes</a>
+            <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/verpacientes">Ver Pacientes</a>
+          </div>
+        </div>
+
+        <div class="navbar-item is-hoverable">
+          <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/dashP">Dashboards</a>
+        </div>
+
+        <div class="navbar-item is-hoverable">
+          <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/padecimientos">Padecimientos</a>
+        </div>
+        
+        <div class="navbar-item is-hoverable">
+          <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" href="/health/horarios">Horarios</a>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <div class="is-flex is-align-items-center">
+              <div class="mr-3">
+                <p class="is-size-6">{{ userName }}</p>
+                <p class="is-size-6 has-text-grey-dark">Doctor</p>
+              </div>
+              <div class="perfil" [ngStyle]="{'background-color': backgroundColor}">
+                <label>{{ userName.charAt(0).toUpperCase() }}</label>
+              </div>
+            </div>
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-6 has-text-weight-normal has-text-dark" (click)="logout()">Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<router-outlet></router-outlet>

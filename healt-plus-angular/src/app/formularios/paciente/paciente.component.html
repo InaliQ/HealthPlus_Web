@@ -1,0 +1,189 @@
+<div class="section">
+    <h2 class="title has-text-centered is-2">Registro de pacientes</h2><br>
+
+    <div class="box">
+        <h3 class="subtitle has-text-centered">Datos Personales</h3>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Nombre</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Nombre" [(ngModel)]="nombre" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarNombre">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Primer apellido</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Primer apellido" [(ngModel)]="apaterno" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarpApellido">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Segundo apellido</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Segundo apellido" [(ngModel)]="amaterno"
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarsApellido">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Fecha de nacimiento</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="date" 
+                        [(ngModel)]="fecha_nac"
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarFecha">Este campo es obligatorio.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Teléfono</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Teléfono" [(ngModel)]="telefono" 
+                        (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="10">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarTel">Este campo es obligatorio.</p>
+                    <p class="help is-danger" *ngIf="ValidarLongTel">El número de teléfono debe tener 10 dígitos.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Calle</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Calle" [(ngModel)]="calle" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarCalle">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Número</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Número" [(ngModel)]="numero" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarNum">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Colonia</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Colonia" [(ngModel)]="colonia" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarCol">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Código Postal</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="C.P." [(ngModel)]="cp" 
+                        (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="5">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarCP">Este campo es obligatorio.</p>
+                    <p class="help is-danger" *ngIf="ValidarLongCP">El código postal debe tener 5 dígitos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3 class="subtitle has-text-centered">Datos salud</h3>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Altura (cm)</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Altura" [(ngModel)]="altura" 
+                        (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="3">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarAltura">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Peso (kg)</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Peso" [(ngModel)]="peso" 
+                        (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="5">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarPeso">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Tipo de sangre</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Tipos de sangre" [(ngModel)]="tipo_sangre" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarTipoS">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Padecimientos</label>
+                    <div class="control">
+                        <div class="select is-rounded">
+                            <select [(ngModel)]="padecimientos" name="padecimientos">
+                                <option *ngFor="let p of listaPadecimientos" [value]="p.idPadecimiento">
+                                    {{ p.nombre }}
+                                </option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+            <button class="button is-primary is-rounded" 
+                    (click)="guardarOEditarPaciente()">{{ isEdit ? 'Editar' : 'Guardar' }}</button>
+        </div>
+    </div>
+
+</div>
+
+
+

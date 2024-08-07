@@ -1,0 +1,138 @@
+<body>
+  <div class="section" style="margin-top: 0px; padding-top: 0px;">
+    <h3 class="title is-3">Catalogo enfermeros</h3>
+    <div class="field is-grouped">
+        <p class="control is-expanded">
+            <input class="input" type="text" placeholder="Buscar paciente"
+            name="filterPostre" [(ngModel)]="nombreBuscar" (input)="buscarPorNombre()">
+        </p>
+    </div>
+
+    
+      <div class="columns is-centered is-multiline">
+        <div class="column is-4 is-4-desktop" *ngFor="let e of listaEnfermeros">
+          <div class="box">
+            <div class="mb-4 is-flex is-align-items-center">
+              <div>
+                <h4 class="title is-size-5 has-text-weight-bold">
+                  {{e.nombre}} {{e.primerApellido}} {{e.segundoApellido}}
+                </h4>
+                <p class="subtitle has-text-info">{{e.numEnfermero}}</p>
+              </div>
+            </div>
+            <div class="subtitle">
+              <strong>Titulo:</strong> {{e.titulo}} <br> 
+              <strong>Horario:</strong>  {{ e.horaInicio}} a {{ e.horaFin}}<br>
+              <button *ngIf="!e.showInfo" id="mas"
+                      class="button mas is-info is-small is-responsive" 
+                      (click)="togglePacienteInfo(e)">Ver más...</button>
+            </div>
+            <div *ngIf="e.showInfo" class="mt-4">
+              <p class="subtitle">
+                <strong>Teléfono:</strong> {{e.telefono}}<br> 
+                <strong>Calle:</strong> {{e.calle}}<br> 
+                <strong>Número:</strong> {{e.numero}}<br> 
+                <strong>Colonia:</strong> {{e.colonia}}<br> 
+                <strong>Código Postal:</strong> {{e.codigoPostal}}<br>
+              </p>
+              <p>
+                <button class="button is-info is-small is-responsive" 
+                        (click)="togglePacienteInfo(e)">Ver menos...</button>
+                <button id="ver" class="button is-success is-small is-responsive" 
+                        (click)="verPacientes(e.idEnfermero)">Ver pacientes</button>                    
+                <button id="editar"
+                        class="button is-warning is-small is-responsive"
+                        (click)="irEnfermeros('/health/enfermeros',e)">Editar</button>
+              </p>
+            </div>
+          </div>
+        </div>    
+      </div>    
+    </div>
+    <div class="modal" [class.is-active]="isModalActive">
+      <div class="modal-background" (click)="closeModal()"></div>
+      <div id="tbl" class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Pacientes asignados</p>
+          <button class="delete" aria-label="close" (click)="closeModal()"></button>
+        </header>
+        <section class="modal-card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th><abbr title="Num_Paciente">Num_Paciente</abbr></th>
+                <th><abbr title="Nombre">Nombre</abbr></th>
+                <th><abbr title="Tipo">Tipo sangre</abbr></th>
+                <th><abbr title="Peso">Peso</abbr></th>
+                <th><abbr title="Altura">Altura</abbr></th>
+                <th><abbr title="Padecimientos">Padecimientos</abbr></th>
+                <th><abbr title="Activo">Activo</abbr></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of listaPacientes">
+                <th>{{p.numPaciente}}</th>            
+                <td>{{p.nombre}}</td>
+                <td>{{p.tipoSangre}}</td>
+                <td>{{p.peso}}</td>
+                <td>{{p.altura}}</td>
+                <td>{{p.nombrePadecimiento}}</td>
+                <td>
+                  <div class="container">
+                    <label class="switch">
+                        <input type="checkbox" [checked]="p.estatus" (change)="cambiarEstatus(p, $event)">
+                      <span class="slider"></span>
+                    </label>
+                  </div>  
+                </td>
+              </tr>   
+            </tbody>
+            <tfoot>
+              <tr>
+                <button class="button is-primary is-outlined is-rounded is-small is-responsive" 
+                        (click)="abrir()">Asignar paciente</button>                    
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </div>
+    <div class="modal" [class.is-active]="isModalActive2">
+      <div class="modal-background" (click)="cerrarPacientes()"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Asignar Pacientes</p>
+          <button class="delete" aria-label="close" (click)="cerrarPacientes()"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="columns">
+            <div class="column is-full">
+              <div class="field">
+                  <label class="label">Pacientes</label>
+                  <div class="control">
+                      <div class="select is-rounded">
+                          <select [(ngModel)]="pacienteSeleccionado" name="pacienteSeleccionado">
+                              <option *ngFor="let p of pacientes" [value]="p.idPaciente">
+                                  {{ p.nombre }} {{p.primerApellido}} {{p.segundoApellido}}
+                              </option>
+                          </select>
+                      </div>                      
+                  </div>
+              </div>
+            </div>          
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <button class="button is-primary is-rounded" 
+                            (click)="agregarPacienteEnfermero()">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+  
