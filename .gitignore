@@ -13,5 +13,4 @@ mono_crash.*
 node_modules/
 
 .vs/
-
 dist/
