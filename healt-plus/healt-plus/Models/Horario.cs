@@ -11,9 +11,9 @@ public partial class Horario
 
     public string? HoraFin { get; set; }
 
-    public virtual ICollection<Doctor>? Doctors { get; set; } = new List<Doctor>();
+    public virtual ICollection<Doctor> Doctors { get; set; } = new List<Doctor>();
 
-    public virtual ICollection<Enfermero>? Enfermeros { get; set; } = new List<Enfermero>();
+    public virtual ICollection<Enfermero> Enfermeros { get; set; } = new List<Enfermero>();
 
-    public virtual ICollection<HistoricoHorarioEnfermero>? HistoricoHorarioEnfermeros { get; set; } = new List<HistoricoHorarioEnfermero>();
+    public virtual ICollection<HistoricoHorarioEnfermero> HistoricoHorarioEnfermeros { get; set; } = new List<HistoricoHorarioEnfermero>();
 }

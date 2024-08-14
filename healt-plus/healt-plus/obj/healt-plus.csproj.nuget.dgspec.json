@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\web integral\\PROYECTO HEALT-PLUS\\healt-plus\\healt-plus\\healt-plus.csproj": {}
+    "D:\\web integral\\HEALT\\HealthPlus_Web\\healt-plus\\healt-plus\\healt-plus.csproj": {}
   },
   "projects": {
-    "D:\\web integral\\PROYECTO HEALT-PLUS\\healt-plus\\healt-plus\\healt-plus.csproj": {
+    "D:\\web integral\\HEALT\\HealthPlus_Web\\healt-plus\\healt-plus\\healt-plus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\web integral\\PROYECTO HEALT-PLUS\\healt-plus\\healt-plus\\healt-plus.csproj",
+        "projectUniqueName": "D:\\web integral\\HEALT\\HealthPlus_Web\\healt-plus\\healt-plus\\healt-plus.csproj",
         "projectName": "healt-plus",
-        "projectPath": "D:\\web integral\\PROYECTO HEALT-PLUS\\healt-plus\\healt-plus\\healt-plus.csproj",
+        "projectPath": "D:\\web integral\\HEALT\\HealthPlus_Web\\healt-plus\\healt-plus\\healt-plus.csproj",
         "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-        "outputPath": "D:\\web integral\\PROYECTO HEALT-PLUS\\healt-plus\\healt-plus\\obj\\",
+        "outputPath": "D:\\web integral\\HEALT\\HealthPlus_Web\\healt-plus\\healt-plus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",

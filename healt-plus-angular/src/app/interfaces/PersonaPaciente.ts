@@ -13,6 +13,8 @@ export interface IPersonaPaciente {
     altura: string;
     peso: string;
     tipoSangre: string;
+    ritmoMax: string;
+    ritmoMin: string;
     estatus: boolean;
     idPadecimiento: number;
     nombrePadecimiento?: string;

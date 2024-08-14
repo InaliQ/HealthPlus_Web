@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace healt_plus.Controllers
@@ -421,6 +422,8 @@ namespace healt_plus.Controllers
                                 pa.Altura,
                                 pa.Peso,
                                 pa.TipoSangre,
+                                pa.RitmoMax,
+                                pa.RitmoMin,
                                 nombrePadecimiento = pade.Nombre,
                                 idPadecimiento = pade.IdPadecimiento,
                                 estatus = pa.Estatus
@@ -454,7 +457,8 @@ namespace healt_plus.Controllers
                     var paciente = new Paciente
                     { NumPaciente = request.NumPaciente, Altura = request.Altura,
                         Peso = request.Peso, TipoSangre = request.TipoSangre,
-                        Estatus = request.Estatus, IdPersona = persona.IdPersona
+                        Estatus = request.Estatus, IdPersona = persona.IdPersona,
+                        RitmoMin = request.RitmoMin, RitmoMax = request.RitmoMax
                     };
 
                     _baseDatos.Pacientes.Add(paciente);
@@ -525,6 +529,8 @@ namespace healt_plus.Controllers
                     pacienteExistente.Altura = request.Altura;
                     pacienteExistente.Peso = request.Peso;
                     pacienteExistente.TipoSangre = request.TipoSangre;
+                    pacienteExistente.RitmoMin = request.RitmoMin;  
+                    pacienteExistente.RitmoMax = request.RitmoMax;
                     pacienteExistente.Estatus = request.Estatus;
 
                     // Actualizar información de los padecimientos
@@ -727,11 +733,26 @@ namespace healt_plus.Controllers
         }
 
 
-       
 
-        
+        [HttpGet]
+        [Route("RitmoDia/{idPaciente}/{fecha}")]
+        public async Task<IActionResult> RitmoDia(int idPaciente, DateTime fecha)
+        {
+            var resultados = await _baseDatos.MonitoreoSaluds
+                .Where(mo => mo.IdPaciente == idPaciente && EF.Functions.DateDiffDay(mo.FechaHora, fecha) == 0)
+                .Select(mo => new
+                {
+                    mo.RitmoCardiaco,
+                    mo.FechaHora
+                })
+                .ToListAsync(); // Ejecuta la consulta
 
-        
+            return Ok(resultados);
+        }
+
+
+
+
 
         // GET PACIENTES POR EDAD
         [HttpGet]
@@ -794,6 +815,8 @@ public class PersonaPaciente
             public string? Altura { get; set; }
             public string? Peso { get; set; }
             public string? TipoSangre { get; set; }
+            public string? RitmoMax { get; set; }
+            public string? RitmoMin { get; set; }
             public bool Estatus { get; set; }
             public int IdPadecimiento { get; set; }
         }

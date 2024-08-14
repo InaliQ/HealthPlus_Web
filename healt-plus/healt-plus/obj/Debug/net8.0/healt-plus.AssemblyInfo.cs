@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("healt-plus")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+823d8ed6659dc49fc0a091d06f6df3e09f3e1aec")]
 [assembly: System.Reflection.AssemblyProductAttribute("healt-plus")]
 [assembly: System.Reflection.AssemblyTitleAttribute("healt-plus")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -294,6 +294,14 @@ public partial class HealtContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("peso");
+            entity.Property(e => e.RitmoMax)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("ritmo_max");
+            entity.Property(e => e.RitmoMin)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("ritmo_min");
             entity.Property(e => e.TipoSangre)
                 .HasMaxLength(10)
                 .IsUnicode(false)

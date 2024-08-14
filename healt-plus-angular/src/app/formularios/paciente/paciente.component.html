@@ -161,6 +161,30 @@
 
             <div class="column">
                 <div class="field">
+                    <label class="label">Frecuencia cardíaca min</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Ritmo cardiaco minimo" [(ngModel)]="rit_min" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarTipoS">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label">Frecuencia cardíaca max</label>
+                    <div class="control">
+                        <input class="input is-rounded" type="text" 
+                        placeholder="Ritmo cardiaco minimo" [(ngModel)]="rit_max" 
+                        [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <p class="help is-danger" *ngIf="ValidarTipoS">Este campo es obligatorio.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
                     <label class="label">Padecimientos</label>
                     <div class="control">
                         <div class="select is-rounded">

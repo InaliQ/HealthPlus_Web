@@ -7,6 +7,8 @@ public partial class Paciente
 {
     public int IdPaciente { get; set; }
 
+    public int IdPersona { get; set; }
+
     public string? NumPaciente { get; set; }
 
     public string? Altura { get; set; }
@@ -15,9 +17,11 @@ public partial class Paciente
 
     public string? TipoSangre { get; set; }
 
-    public bool? Estatus { get; set; }
+    public string? RitmoMin { get; set; }
 
-    public int IdPersona { get; set; }
+    public string? RitmoMax { get; set; }
+
+    public bool? Estatus { get; set; }
 
     public virtual ICollection<Alertum> Alerta { get; set; } = new List<Alertum>();
 

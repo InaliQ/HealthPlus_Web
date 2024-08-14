@@ -32,6 +32,8 @@ export class PacienteComponent {
   altura='';
   peso='';
   tipo_sangre='';
+  rit_min = '';
+  rit_max = '';
   padecimientos=0;
 
   listaPadecimientos: IPadecimientos[] = [];
@@ -70,6 +72,8 @@ export class PacienteComponent {
       this.altura = paciente.altura;
       this.peso = paciente.peso;
       this.tipo_sangre = paciente.tipoSangre;
+      this.rit_min = paciente.ritmoMin;
+      this.rit_max = paciente.ritmoMax;
       this.padecimientos = paciente.idPadecimiento;
       this.isEdit = true;
     }
@@ -97,6 +101,7 @@ export class PacienteComponent {
 
 
   agregarPaciente() {
+    console.log('Ritmo Min:', this.rit_min, 'Ritmo Max:', this.rit_max);
     const numPacienteGenerado = this.generarNumPaciente(this.nombre);
     const fecha = new Date(this.fecha_nac);
     const fechaNacimiento = fecha.toISOString().split('T')[0]; // Convertir a formato yyyy-MM-dd
@@ -115,6 +120,8 @@ export class PacienteComponent {
       altura: this.altura,
       peso: this.peso,
       tipoSangre: this.tipo_sangre,
+      ritmoMax: this.rit_max,
+      ritmoMin: this.rit_min,
       estatus: true,
       idPadecimiento: this.padecimientos
     };
@@ -134,6 +141,7 @@ export class PacienteComponent {
   }
   
   editarPaciente() {
+    console.log('Ritmo Min:', this.rit_min, 'Ritmo Max:', this.rit_max);
     const fecha = new Date(this.fecha_nac);
     const fechaNacimiento = fecha.toISOString().split('T')[0]; 
 
@@ -152,6 +160,8 @@ export class PacienteComponent {
       altura: this.altura,
       peso: this.peso,
       tipoSangre: this.tipo_sangre,
+      ritmoMax: this.rit_max,
+      ritmoMin: this.rit_min,
       estatus: true,
       idPadecimiento: this.padecimientos
     };
@@ -188,6 +198,8 @@ export class PacienteComponent {
     this.peso = '';
     this.tipo_sangre = '';
     this.padecimientos = 0;
+    this.rit_max = '';
+    this.rit_min = '';
   }
 
   get ValidarNombre() {

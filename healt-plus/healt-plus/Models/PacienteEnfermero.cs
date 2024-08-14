@@ -11,7 +11,7 @@ public partial class PacienteEnfermero
 
     public int IdEnfermero { get; set; }
 
-    public virtual Enfermero? IdEnfermeroNavigation { get; set; } = null!;
+    public virtual Enfermero IdEnfermeroNavigation { get; set; } = null!;
 
-    public virtual Paciente? IdPacienteNavigation { get; set; } = null!;
+    public virtual Paciente IdPacienteNavigation { get; set; } = null!;
 }

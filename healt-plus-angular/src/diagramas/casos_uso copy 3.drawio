@@ -1,0 +1,48 @@
+<mxfile host="65bd71144e">
+    <diagram name="CU_Padecimientos" id="6aQpN7nQUlveGSO6Lpv-">
+        <mxGraphModel dx="591" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-0"/>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-1" parent="mGJhGw1RVA1ECX-fr46J-0"/>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-2" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="80" y="10" width="390" height="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-3" value="Doctor" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="130" y="150" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-4" value="Registro de padecimientsos" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="220" y="20" width="230" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-5" value="Agregar padecimientos" style="shape=ellipse;html=1;strokeWidth=3;fontStyle=1;whiteSpace=wrap;align=center;perimeter=ellipsePerimeter;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="280" y="60" width="102.5" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-6" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="mGJhGw1RVA1ECX-fr46J-1" source="mGJhGw1RVA1ECX-fr46J-7" target="mGJhGw1RVA1ECX-fr46J-8" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="335" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="lM8KO3n3QATqt2Ms2JGU-1" style="edgeStyle=none;html=1;exitX=0.226;exitY=1.05;exitDx=0;exitDy=0;exitPerimeter=0;" parent="mGJhGw1RVA1ECX-fr46J-1" source="mGJhGw1RVA1ECX-fr46J-7" target="lM8KO3n3QATqt2Ms2JGU-0" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-7" value="Cargar&lt;br&gt;padecimientos" style="shape=ellipse;html=1;strokeWidth=3;fontStyle=1;whiteSpace=wrap;align=center;perimeter=ellipsePerimeter;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="280" y="140" width="102.5" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-8" value="Editar padecimientos&amp;nbsp;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; font-weight: 400; text-align: start;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20style%3D%22edgeStyle%3Dnone%3Bhtml%3D1%3BexitX%3D0.5%3BexitY%3D1%3BexitDx%3D0%3BexitDy%3D0%3B%22%20edge%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20relative%3D%221%22%20as%3D%22geometry%22%3E%3CmxPoint%20x%3D%22335%22%20y%3D%22190%22%20as%3D%22sourcePoint%22%2F%3E%3CmxPoint%20x%3D%22335%22%20y%3D%22290%22%20as%3D%22targetPoint%22%2F%3E%3C%2FmxGeometry%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3Epadep&lt;/span&gt;" style="shape=ellipse;html=1;strokeWidth=3;fontStyle=1;whiteSpace=wrap;align=center;perimeter=ellipsePerimeter;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="320" y="260" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-9" style="edgeStyle=none;html=1;" parent="mGJhGw1RVA1ECX-fr46J-1" target="mGJhGw1RVA1ECX-fr46J-5" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="160" y="170" as="sourcePoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mGJhGw1RVA1ECX-fr46J-12" style="edgeStyle=none;html=1;entryX=0.026;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" parent="mGJhGw1RVA1ECX-fr46J-1" source="mGJhGw1RVA1ECX-fr46J-3" target="mGJhGw1RVA1ECX-fr46J-7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lM8KO3n3QATqt2Ms2JGU-0" value="Eliminar&lt;br&gt;padecimientos&amp;nbsp;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; font-weight: 400; text-align: start;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20style%3D%22edgeStyle%3Dnone%3Bhtml%3D1%3BexitX%3D0.5%3BexitY%3D1%3BexitDx%3D0%3BexitDy%3D0%3B%22%20edge%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20relative%3D%221%22%20as%3D%22geometry%22%3E%3CmxPoint%20x%3D%22335%22%20y%3D%22190%22%20as%3D%22sourcePoint%22%2F%3E%3CmxPoint%20x%3D%22335%22%20y%3D%22290%22%20as%3D%22targetPoint%22%2F%3E%3C%2FmxGeometry%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3Epadep&lt;/span&gt;" style="shape=ellipse;html=1;strokeWidth=3;fontStyle=1;whiteSpace=wrap;align=center;perimeter=ellipsePerimeter;" parent="mGJhGw1RVA1ECX-fr46J-1" vertex="1">
+                    <mxGeometry x="250" y="320" width="112.5" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

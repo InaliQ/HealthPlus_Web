@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rLprgNVS8jFP62hra4aFfE+QeobQIl1DOiR5W3DyQSyGS7CFTQgYun9EXMa40x6kj5cMV4c9GEnmtrp3Hf2x/A==",
+  "dgSpecHash": "POqVzlYRlzgo+N1qE1QLT2hZR+gh+QvG7DOeGHZxSfkMSnxohv3vnj9ACy4TpCXe+mzOPaYDlyE872Ih2VnRfA==",
   "success": true,
-  "projectFilePath": "D:\\web integral\\PROYECTO HEALT-PLUS\\healt-plus\\healt-plus\\healt-plus.csproj",
+  "projectFilePath": "D:\\web integral\\HEALT\\HealthPlus_Web\\healt-plus\\healt-plus\\healt-plus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\maria\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\maria\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
