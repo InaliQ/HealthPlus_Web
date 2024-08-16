@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEALT +</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+
+</head>
+
+<style>
+    .is-flex-centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #menu {
+        position: fixed;
+        margin-left: 50px !important;
+        margin-right: 700px !important;
+        top: 10;
+        height: 40px;
+        z-index: 30;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #menu li {
+        display: inline-block;
+        margin: 10px;
+        color: #000;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+
+    #menu li:hover {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    #menu li.active,
+    #menu li.active:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    #menu li a {
+        text-decoration: none;
+        color: #000;
+        padding: 9px 18px;
+        display: block;
+    }
+
+    #menu li.active a,
+    #menu li.active:hover a:hover {
+        color: #fff;
+    }
+</style>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="../../source/img/Logo.png" alt="Logo">
+
+            </a>
+
+
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="index.html" class="navbar-item">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="../info_services/index.html">
+                    Mi servicio
+                </a>
+                <a class="navbar-item" href="../upgrade_service/index.html">
+                    Servicios
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+
+                        <a class="button is-primary" href="../../../../index.html">
+                            Salir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <ul id="menu">
+        <li data-menuanchor="introduction"><a href="#1">HEALT +</a></li>
+        <li data-menuanchor="content"><a href="#2">DISEÑOS</a></li>
+        <li data-menuanchor="footer"><a href="#3">SOFTLI</a></li>
+    </ul>
+
+    <div id="fullpage">
+        <section class="section">
+            <div class="hero is-fullheight">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column has-text-centered" data-aos="zoom-out-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
+                                <div>
+                                    <img src="../../source/img/Logo.png" alt="logo" width="150px">
+                                    <h1 class="title">
+                                        BIENVENIDO A HEALT +
+                                    </h1>
+                                </div>
+                                <br>
+                                <h2 class="subtitle has-text-justified" style="padding: 10px;">
+                                    En Health +, estamos comprometidos con la salud y el bienestar de nuestros clientes.
+                                    Presentamos nuestro innovador servicio de monitoreo de salud en tiempo real a través
+                                    de un smartwatch de última generación. Este dispositivo está diseñado para ofrecer
+                                    una atención médica integral en la comodidad de su hogar.
+                                </h2>
+                                <hr>
+
+                            </div>
+                            <div class="column" data-aos="zoom-out-down" data-aos-easing="linear"
+                                data-aos-duration="1500">
+                                <img src="../../source/img/RelojPresentacion.png" alt="GrisNegro">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="hero">
+                <div class="hero-body">
+                    <div class="container">
+
+                        <h1 class="title">
+                            Checa qué lindo.
+                        </h1>
+                        <h2 class="subtitle">
+                            Encuentra el reloj que se adapte a tu estilo y cuida tu salud
+                        </h2>
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="Presentacion m-5">
+                        <div>
+                            <img src="../../source/img/RelojGrisNegro.png" alt="GrisNegro">
+                        </div>
+                        <div>
+                            <img src="../../source/img/RelojNegro.png" alt="Negro">
+                        </div>
+                        <div>
+                            <img src="../../source/img/RelojRosa.png" alt="Rosa">
+                        </div>
+                        <div>
+                            <img src="../../source/img/RelojGris.png" alt="Gris">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="slide">
+                <div class="container">
+                    <div class="centered-columns">
+                        <div class="columns">
+                            <div class="column is-10 is-offset-1"
+                                style="background-color: #000; height: 700px; border: 2px solid #000; border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top: -50px;">
+                                <h1 class="title p-6">CUIDA TU SALUD CON HEALT + DE SOFTLI</h1>
+                                <br>
+                                <video id="myVideo" width="800" loop autoplay muted>
+                                    <source src="../../source/video/Smart.mp4" type="video/mp4">
+                                    Tu navegador no soporta el elemento de video.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-6">
+                <div class="slide">
+                    <div class="container">
+                        <div class="centered-columns">
+                            <div class="columns">
+                                <div class="column is-10 is-offset-1"
+                                    style="background-color: #000; height: 700px; border: 2px solid #000; border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top: -50px;">
+                                    <h1 class="title p-6">
+                                        VISIÓN
+                                    </h1>
+                                    <h2 class="subtitle px-6 has-text-justified">
+                                        Ser un líder con productos eficientes en el sector del software, ofreciendo
+                                        servicios de calidad para cualquier idea o mejora de software que tengas en
+                                        mente.
+                                    </h2>
+                                    <div class="has-text-centered">
+                                        <figure class="image" style="display: inline-block;">
+                                            <img src="../../source/img/Vision.png" alt="VISION"
+                                                style="height: 60%; max-width: 80%;">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="container">
+                        <div class="centered-columns">
+                            <div class="columns">
+                                <div class="column is-10 is-offset-1"
+                                    style="background-color: #000; height: 700px; border: 2px solid #000; border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top: -50px;">
+                                    <h1 class="title p-6">
+                                        MISIÓN
+                                    </h1>
+                                    <h2 class="subtitle px-6 has-text-justified">
+                                        Ser la empresa líder en desarrollo, reconocida por nuestro trabajo y
+                                        experiencia.
+                                    </h2>
+                                    <div class="has-text-centered">
+                                        <figure class="image" style="display: inline-block;">
+                                            <img src="../../source/img/Mision.png" alt="MISION"
+                                                style="height: 50%; max-width: 100%;">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="container">
+                        <div class="centered-columns">
+                            <div class="columns">
+                                <div class="column is-10 is-offset-1 "
+                                    style="background-color: #000; height: 700px; border: 2px solid #000; border-radius: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top: -50px;">
+                                    <h1 class="title p-6">
+                                        VALORES
+                                    </h1>
+
+                                    <h2 class="subtitle px-6 has-text-justified">
+                                        Innovación: Fomentamos la creatividad y la búsqueda constante de nuevas
+                                        soluciones tecnológicas.
+                                        Calidad: Nos comprometemos a entregar productos y servicios de la más alta
+                                        calidad, superando las expectativas de nuestros clientes.
+                                        Integridad: Actuamos con ética y transparencia en todas nuestras interacciones y
+                                        decisiones.
+                                    </h2>
+                                    <div class="has-text-centered">
+                                        <figure class="image" style="display: inline-block;">
+                                            <img src="../../source/img/valores.png" alt="MISION"
+                                                style="height: 50%; max-width: 80%;">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+    <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function () {
+            new fullpage('#fullpage', {
+                menu: '#menu',
+                anchors: ['introduction', 'content', 'footer'],
+                loopTop: true,
+                loopBottom: true,
+                autoScrolling: true,
+                scrollHorizontally: true,
+                easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+                onLeave: function (origin, destination, direction) {
+                    // Get the video element
+                    // var video = document.getElementById('myVideo');
+
+                    // // If we are leaving the slide with the video
+                    // if (origin.anchor === 'content') {
+                    //     video.pause();
+                    //     video.currentTime = 0; // Optional: Reset the video to the beginning
+                    // }
+                },
+                afterLoad: function (origin, destination, direction) {
+                    // Get the video element
+                    // var video = document.getElementById('myVideo');
+
+                    // // If we are entering the slide with the video
+                    // if (destination.anchor === 'content') {
+                    //     video.play();
+                    // }
+                }
+            });
+        });
+
+
+        AOS.init();
+
+        $(document).ready(function () {
+
+            $('.Presentacion').slick({
+                dots: true,
+                infinite: true,
+                speed: 1500,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                centerMode: true,
+                focusOnSelect: true,
+                autoplay: true,  // Asegúrate de tener esta línea
+                autoplaySpeed: 2000
+            });
+
+
+            $('.informacion').slick({
+                dots: true,
+                infinite: true,
+                speed: 1000,
+                slidesToShow: 1,
+                autoplay: true,  // Asegúrate de tener esta línea
+                autoplaySpeed: 8000
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/logo_r_resumme.png" type="image/x-icon" />
+    <title>Detalles del Servicio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">    <link rel="stylesheet" href="source/style/main.css">
+    <link rel="stylesheet" href="../../source/style/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../source/js/animacion.js"></script>
+    <script src="../../source/js/main.js"></script>
+    <script src="../../source/js/login.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            /* Fondo claro para la página */
+        }
+
+        .full-screen-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 1rem;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 600px;
+            /* Ancho máximo de la tarjeta */
+            background-color: #ffffff;
+            /* Fondo blanco para la tarjeta */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Sombra ligera */
+            border-radius: 8px;
+            /* Bordes redondeados */
+            padding: 2rem;
+            /* Espaciado interno de la tarjeta */
+        }
+
+        .card-header {
+            background-color: #00d1b2;
+            /* Color de fondo de la cabecera */
+            color: #fff;
+            /* Color del texto en la cabecera */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 1rem;
+        }
+
+        .card-header-title {
+            font-size: 2rem;
+            /* Tamaño de fuente más grande para el título */
+            font-weight: bold;
+        }
+
+        .tag {
+            margin-right: 0.5rem;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .item {
+            flex: 1 1 calc(50% - 1rem);
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+
+        dl {
+            margin: 0;
+        }
+
+        dt {
+            font-weight: bold;
+            font-size: 1.25rem;
+            /* Tamaño de fuente más grande para las etiquetas */
+            margin: 0;
+        }
+
+        dd {
+            font-size: 1.15rem;
+            /* Tamaño de fuente más grande para los valores */
+            margin: 0;
+        }
+
+        .status-item {
+            flex: 1 1 100%;
+            /* Ocupa toda la fila */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border: 2px solid #00d1b2;
+            border-radius: 4px;
+            background-color: #e0f7f4;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-item dt {
+            font-size: 1.5rem;
+            /* Tamaño de fuente más grande para el estatus */
+            color: #00d1b2;
+            /* Color del texto del estatus */
+        }
+
+        .status-item dd {
+            font-size: 1.5rem;
+            /* Tamaño de fuente más grande para el valor del estatus */
+            margin: 0;
+        }
+
+        .status-item .tag {
+            font-size: 1.25rem; /* Tamaño de fuente más grande para la etiqueta */
+            padding: 0.5rem 1rem; /* Ajustar el espaciado interno */
+            border-radius: 3px; /* Asegurar que el borde sea redondeado */
+        }
+
+        .has-text-centered {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="../../source/img/Logo.png" alt="Logo">
+
+            </a>
+
+
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="../home_ac/index.html" class="navbar-item">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="../info_services/index.html">
+                    Mi servicio
+                </a>
+                <a class="navbar-item" href="../upgrade_service/index.html">
+                    Servicios
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="columns is-vcentered">
+        <div class="column is-5">
+            <div class="full-screen-card">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Detalles del Servicio
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <div class="item">
+                                <dt>Usuario:</dt>
+                                <dd id="usuario"></dd>
+                            </div>
+                            <div class="item">
+                                <dt>Fecha Inicio:</dt>
+                                <dd id="fechaInicio"></dd>
+                            </div>
+                            <div class="item">
+                                <dt>Fecha Fin:</dt>
+                                <dd id="fechaFin"></dd>
+                            </div>
+                            <div class="item">
+                                <dt>Precio Servicio:</dt>
+                                <dd id="precioServicio"></dd>
+                            </div>
+                            <div class="item">
+                                <dt>Fecha Pago:</dt>
+                                <dd id="fechaPago"></dd>
+                            </div>
+                            <div class="status-item">
+                                <dt>Est. Servicio:</dt>
+                                <dd id="estatusServicio"></dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles-js" class="interactive-bg column is-8">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            usuario = localStorage.getItem('user');
+            // URL de la API
+            const apiUrl = 'http://localhost:5140/api/Healt/ObtenerInformacionUsuario?usuario1='+usuario;
+
+            // Realizar la solicitud AJAX
+            $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    // Verificar si la respuesta tiene datos
+                    if (response.$values && response.$values.length > 0) {
+                        const data = response.$values[0];
+                        // Llenar los elementos con los datos de la respuesta
+                        $('#usuario').text(data.usuario);
+                        $('#fechaInicio').text(new Date(data.fechaInicio).toISOString().split('T')[0]);
+                        $('#fechaFin').text(new Date(data.fechaFin).toISOString().split('T')[0]);
+                        $('#precioServicio').text(`$${data.precioServicio}`);
+                        $('#fechaPago').text(new Date(data.fechaPago).toISOString().split('T')[0]);
+
+                        // Actualizar el estatus del servicio
+                        const estatusServicio = data.estatusServicio ? '<span class="tag is-success">Activo</span>' : '<span class="tag is-danger">Inactivo</span>';
+                        $('#estatusServicio').html(estatusServicio);
+                    }
+                },
+                error: function() {
+                    console.error('Error al obtener los datos.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
