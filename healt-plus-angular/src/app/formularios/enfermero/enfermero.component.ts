@@ -73,9 +73,14 @@ export class EnfermeroComponent {
 
 
   guardarOEditarEnfermero() {
+    if (!this.validarFormulario()) {
+      this._servicioA.error('Por favor, completa todos los campos obligatorios.');
+      return;
+    }
     this.formulario = true;
+    
     if (this.isEdit) {
-      this._servicioA.confirmarEditar('Se guardaran los cambios').then((result) => {
+      this._servicioA.confirmarEditar('Se guardarán los cambios').then((result) => {
         if (result.isConfirmed) {
           this.editarEnfermero();
         }
@@ -83,6 +88,20 @@ export class EnfermeroComponent {
     } else {
       this.agregarEnfermero();
     }
+  }
+  
+  
+  validarFormulario(): boolean {
+    this.formulario = true;
+    
+    // Validar campos individuales
+    if (this.ValidarNombre || this.ValidarpApellido || this.ValidarsApellido || this.ValidarFecha ||
+        this.ValidarTel || this.ValidarLongTel || this.ValidarCalle || this.ValidarNum || 
+        this.ValidarCol || this.ValidarCP || this.ValidarLongCP || this.ValidarTitulo) {
+      return false;
+    }
+    
+    return true;
   }
   
 

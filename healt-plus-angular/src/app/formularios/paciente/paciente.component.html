@@ -165,7 +165,7 @@
                     <div class="control">
                         <input class="input is-rounded" type="text" 
                         placeholder="Ritmo cardiaco minimo" [(ngModel)]="rit_min" 
-                        [ngModelOptions]="{standalone: true}">
+                        (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="3">
                     </div>
                     <p class="help is-danger" *ngIf="ValidarTipoS">Este campo es obligatorio.</p>
                 </div>
@@ -177,7 +177,7 @@
                     <div class="control">
                         <input class="input is-rounded" type="text" 
                         placeholder="Ritmo cardiaco minimo" [(ngModel)]="rit_max" 
-                        [ngModelOptions]="{standalone: true}">
+                        (keypress)="validarNumeros($event)" [ngModelOptions]="{standalone: true}" maxlength="3">
                     </div>
                     <p class="help is-danger" *ngIf="ValidarTipoS">Este campo es obligatorio.</p>
                 </div>

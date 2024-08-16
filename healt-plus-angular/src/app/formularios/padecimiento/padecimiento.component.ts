@@ -10,6 +10,7 @@ import { AlertasService } from '../../services/alertas.service';
   styleUrl: './padecimiento.component.css'
 })
 export class PadecimientoComponent {
+  formulario = false;
   isEdit = false;
   idPadecimiento=0;
   nombre= '';
@@ -37,12 +38,24 @@ export class PadecimientoComponent {
   }
 
   guardarOEditarPadecimiento() {
+    this.formulario = true;
+    
+    if (this.ValidarNombre) {
+      this._servicioA.error('Por favor, completa todos los campos obligatorios.');
+      return; 
+    }
+  
     if (this.isEdit) {
-      this.editarPadecimiento();
+      this._servicioA.confirmarEditar('Se guardarán los cambios').then((result) => {
+        if (result.isConfirmed) {
+          this.editarPadecimiento();
+        }
+      });
     } else {
       this.agregarPadecimiento();
     }
   }
+  
 
   agregarPadecimiento() {
     const nuevoPadecimiento: IPadecimientos = {
@@ -62,36 +75,56 @@ export class PadecimientoComponent {
     });
   }
 
-  editarPadecimiento() {
-    const nuevoPadecimiento: IPadecimientos = {
-        idPadecimiento: this.idPadecimiento,
-        nombre: this.nombre
-      };
-  
-      this._servicio.modificarPadecimiento(nuevoPadecimiento).subscribe({
-        next: (response) => {
-          console.log(response);
-          this._servicioA.success('Padecimiento modificado');
-          this.cargarPadecimientos();
-          this.limpiar();
-        },
-        error: (e) => {
-          console.error('Error al editar padecimiento:', e);
-        }
-      });
-    
-  }
 
-  eliminarPadecimiento(padecimiento: IPadecimientos){
-    this._servicio.eliminarPadecimiento(padecimiento.idPadecimiento ?? 0).subscribe({
-      next:(data) => {
-        this._servicioA.success('Padecimiento eliminado');
-        this.cargarPadecimientos();
-      }, error: (e) => {console.log(e)}
-    })
+  editarPadecimiento() {
+    this._servicioA.confirmarEditar('Se guardarán los cambios. ¿Deseas continuar?').then((result) => {
+      if (result.isConfirmed) {
+        const padecimientoEditado: IPadecimientos = {
+          idPadecimiento: this.idPadecimiento,
+          nombre: this.nombre
+        };
+    
+        this._servicio.modificarPadecimiento(padecimientoEditado).subscribe({
+          next: (response) => {
+            console.log(response);
+            this._servicioA.success('Padecimiento modificado');
+            this.cargarPadecimientos(); 
+            this.limpiar(); 
+          },
+          error: (e) => {
+            console.error('Error al editar padecimiento:', e);
+            this._servicioA.error('No se pudo editar el padecimiento');
+          }
+        });
+      }
+    });
+  }
+  
+
+  eliminarPadecimiento(padecimiento: IPadecimientos) {
+    this._servicioA.confirmarEliminar('Esta acción no se puede deshacer.').then((result) => {
+      if (result.isConfirmed) {
+        this._servicio.eliminarPadecimiento(padecimiento.idPadecimiento ?? 0).subscribe({
+          next: (data) => {
+            this._servicioA.success('Padecimiento eliminado');
+            this.cargarPadecimientos();
+          },
+          error: (e) => {
+            console.error('Error al eliminar padecimiento:', e);
+            this._servicioA.error('No se pudo eliminar el padecimiento');
+          }
+        });
+      }
+    });
+  }
+  
+
+  get ValidarNombre() {
+    return this.formulario && this.nombre.trim().length === 0;
   }
 
   limpiar(){
+    this.formulario = false;
     this.isEdit = false;
     this.idPadecimiento=0;
     this.nombre= '';

@@ -11,6 +11,7 @@
                         placeholder="Nombre" [(ngModel)]="nombre" 
                         [ngModelOptions]="{standalone: true}">
                     </div>
+                    <p class="help is-danger" *ngIf="ValidarNombre">Este campo es obligatorio.</p>
                 </div>
             </div>
         </div>
