@@ -1,5 +1,6 @@
 ﻿using healt_plus.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -24,11 +25,241 @@ namespace healt_plus.Controllers
         ///GENERAMOS CONSTRUCTOR
         public HealtController(HealtContext baseDatos) { this._baseDatos = baseDatos; }
 
+		// --------------------------------------- SERVICIO ----------------------------------------
+		[HttpPut]
+		[Route("ModificarIdServicio")]
+		public async Task<IActionResult> ModificarIdServicio([FromBody] ModificarIdServicioRequest request)
+		{
+			// Buscar el usuario y cliente relacionado
+			var cliente = await (from u in _baseDatos.Usuarios
+								 join c in _baseDatos.Clientes on u.IdUsuario equals c.IdUsuario
+								 where u.Usuario1 == request.Usuario1
+								 select c).FirstOrDefaultAsync();
 
-        //---------------------------------------- AUTH -------------------------------------------
+			if (cliente == null)
+			{
+				return NotFound("No se encontró un cliente para el usuario especificado.");
+			}
 
-        //METODO GET (LOGIIN)
-        [HttpPost]
+			// Modificar el ID del servicio
+			cliente.IdServicio = request.NuevoIdServicio;
+
+			// Guardar los cambios en la base de datos
+			try
+			{
+				await _baseDatos.SaveChangesAsync();
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"Error al actualizar el servicio: {ex.Message}");
+			}
+
+			return Ok("El ID de servicio ha sido actualizado correctamente.");
+		}
+
+
+
+		[HttpGet]
+		[Route("ObtenerInformacionUsuario")]
+		public async Task<IActionResult> ObtenerInformacionServicio(string usuario1)
+		{
+			var servicios = from p in _baseDatos.Personas
+							join u in _baseDatos.Usuarios on p.IdPersona equals u.IdPersona
+							join c in _baseDatos.Clientes on u.IdUsuario equals c.IdUsuario
+							join s in _baseDatos.Servicios on c.IdServicio equals s.IdServicio
+							where u.Usuario1 == usuario1
+							select new
+							{
+								idServicio = s.IdServicio,
+								usuario = u.Usuario1,
+								estatusUsuario = u.Estatus,
+								estatusCliente = c.Estatus,
+								fechaInicio = s.FechaInicio,
+								fechaFin = s.FechaFin,
+								precioServicio = s.Precio,
+								fechaPago = s.FechaPago,
+								estatusServicio = s.Estatus
+							};
+
+			var result = await servicios.ToListAsync();
+
+			if (result == null || !result.Any())
+			{
+				return NotFound("No se encontraron servicios para el usuario especificado.");
+			}
+
+			return Ok(result);
+		}
+
+		[HttpPut]
+		[Route("CambiarEstatusServicio")]
+		public async Task<IActionResult> CambiarEstatusServicio([FromBody] CambiarEstatusRequest request)
+		{
+			// Busca el servicio por su ID
+			var servicio = await _baseDatos.Servicios.FindAsync(request.IdServicio);
+
+			// Verifica si el servicio existe
+			if (servicio == null)
+			{
+				return NotFound(new { isSuccess = false, message = "Servicio no encontrado" });
+			}
+
+			// Cambia el estatus del servicio
+			servicio.Estatus = request.NuevoEstatus;
+
+			// Guarda los cambios en la base de datos
+			await _baseDatos.SaveChangesAsync();
+
+			return Ok(new { isSuccess = true, message = "Estatus del servicio actualizado correctamente" });
+		}
+
+		[HttpGet]
+		[Route("ObtenerInformacionServicio")]
+		public async Task<IActionResult> ObtenerInformacionServicio()
+		{
+			var servicios = from p in _baseDatos.Personas
+							join u in _baseDatos.Usuarios on p.IdPersona equals u.IdPersona
+							join c in _baseDatos.Clientes on u.IdUsuario equals c.IdUsuario
+							join s in _baseDatos.Servicios on c.IdServicio equals s.IdServicio
+							select new
+							{
+								idServicio = s.IdServicio,
+								usuario = u.Usuario1,
+								estatusUsuario = u.Estatus,
+								estatusCliente = c.Estatus,
+								fechaInicio = s.FechaInicio,
+								fechaFin = s.FechaFin,
+								precioServicio = s.Precio,
+								fechaPago = s.FechaPago,
+								estatusServicio = s.Estatus
+							};
+
+			return Ok(await servicios.ToListAsync());
+		}
+
+
+		[HttpPost]
+		[Route("CotizadorCliente")]
+		public async Task<IActionResult> InsertarUsuarioCliente([FromBody] UsuarioServicioCotizador request)
+		{
+			// Define los parámetros para el procedimiento almacenado
+			var parametros = new[]
+			{
+		new SqlParameter("@nombre", (object)request.Nombre ?? DBNull.Value),
+		new SqlParameter("@primer_apellido", (object)request.PrimerApellido ?? DBNull.Value),
+		new SqlParameter("@segundo_apellido", (object)request.SegundoApellido ?? DBNull.Value),
+		new SqlParameter("@telefono", (object)request.Telefono ?? DBNull.Value),
+		new SqlParameter("@calle", (object)request.Calle ?? DBNull.Value),
+		new SqlParameter("@numero", (object)request.Numero ?? DBNull.Value),
+		new SqlParameter("@codigo_postal", (object)request.CodigoPostal ?? DBNull.Value),
+		new SqlParameter("@colonia", (object)request.Colonia ?? DBNull.Value),
+		new SqlParameter("@usuario", (object)request.Usuario ?? DBNull.Value),
+		new SqlParameter("@contrasenia", (object)request.Contrasenia ?? DBNull.Value),
+		new SqlParameter("@estatusUsuario", request.EstatusUsuario),
+		new SqlParameter("@fecha_inicio", request.FechaInicio.HasValue ? (object)request.FechaInicio.Value : DBNull.Value),
+		new SqlParameter("@fecha_fin", request.FechaFin.HasValue ? (object)request.FechaFin.Value : DBNull.Value),
+		new SqlParameter("@precio", request.Precio),
+		new SqlParameter("@fecha_pago", request.FechaPago.HasValue ? (object)request.FechaPago.Value : DBNull.Value),
+		new SqlParameter("@estatusServicio", request.EstatusServicio),
+		new SqlParameter("@precioLote", request.PrecioLote),
+		new SqlParameter("@cantidad", request.Cantidad),
+		new SqlParameter("@modelo", (object)request.Modelo ?? DBNull.Value),
+		new SqlParameter("@precio_lote", request.PrecioLote)
+	};
+
+			// Ejecuta el procedimiento almacenado
+			await _baseDatos.Database.ExecuteSqlRawAsync(
+				"EXEC InsertarDatosCompletos @nombre, @primer_apellido, @segundo_apellido, @telefono, @calle, @numero, @codigo_postal, @colonia, @usuario, @contrasenia, @estatusUsuario, @fecha_inicio, @fecha_fin, @precio, @fecha_pago, @estatusServicio, @precioLote, @cantidad, @modelo, @precio_lote",
+				parametros
+			);
+
+			return Ok(new { isSuccess = true, message = "Datos insertados correctamente" });
+		}
+
+
+		[HttpPost]
+		[Route("InsertarUsuarioCliente")]
+		public async Task<IActionResult> InsertarUsuarioCliente([FromBody] UsuarioLoginServ request)
+		{
+			// Llama al procedimiento almacenado usando la conexión a la base de datos
+			var parametros = new[]
+			{
+			new SqlParameter("@nombre", request.Nombre),
+			new SqlParameter("@primer_apellido", request.PrimerApellido),
+			new SqlParameter("@segundo_apellido", request.SegundoApellido),
+			new SqlParameter("@telefono", request.Telefono),
+			new SqlParameter("@calle", request.Calle),
+			new SqlParameter("@numero", request.Numero),
+			new SqlParameter("@codigo_postal", request.CodigoPostal),
+			new SqlParameter("@colonia", request.Colonia),
+			new SqlParameter("@usuario", request.Usuario),
+			new SqlParameter("@contrasenia", request.Contrasenia),
+			new SqlParameter("@estatusUsuario", request.EstatusUsuario),
+			new SqlParameter("@idServicio", request.IdServicio),
+			new SqlParameter("@estatusCliente", request.EstatusCliente)
+		};
+
+			await _baseDatos.Database.ExecuteSqlRawAsync("EXEC InsertarUsuarioCliente @nombre, @primer_apellido, @segundo_apellido, @telefono, @calle, @numero, @codigo_postal, @colonia, @usuario, @contrasenia, @estatusUsuario, @idServicio, @estatusCliente", parametros);
+
+			return Ok(new { isSuccess = true, message = "Datos insertados correctamente" });
+		}
+
+		//METODO GET (LOGIINService)
+		[HttpPost]
+		[Route("loginService")]
+		public async Task<IActionResult> LoginService([FromBody] UsuarioLogin request)
+		{
+			var query = @"
+        SELECT
+            p.idPersona,
+            p.nombre,
+            p.primer_apellido,
+            p.segundo_apellido,
+            p.telefono,
+            p.calle,
+            p.numero,
+            p.codigo_postal,
+            p.colonia,
+            u.idUsuario,
+            u.usuario,
+            u.contrasenia
+        FROM [healt].[dbo].[persona] p
+        JOIN [healt].[dbo].[usuario] u ON p.idPersona = u.idPersona
+        WHERE u.usuario = @Usuario AND u.contrasenia = @Contrasenia";
+
+			var usuarios = await _baseDatos.Personas
+				.FromSqlRaw(query, new SqlParameter("@Usuario", request.user), new SqlParameter("@Contrasenia", request.contrasenia))
+				.ToListAsync();
+
+			if (!usuarios.Any())
+			{
+				return Unauthorized(new { isSuccess = false, message = "Usuario o contraseña incorrectos" });
+			}
+
+			var user = usuarios.First(); // Obtener el primer usuario encontrado
+
+
+			string rol;
+			if (user.Telefono == "505" && user.Nombre == "CLIENTE")
+			{
+				rol = "CA";
+			}
+			else if (user.Telefono == "606" && user.Nombre == "ADMIN")
+			{
+				rol = "AS";
+			}
+			else
+			{
+				rol = "Usuario";
+			}
+
+			return Ok(new { isSuccess = true, rol });
+		}
+
+		//---------------------------------------- AUTH -------------------------------------------
+
+		//METODO GET (LOGIIN)
+		[HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] UsuarioLogin request)
         {
@@ -797,6 +1028,58 @@ namespace healt_plus.Controllers
 
 
 
+public class ModificarIdServicioRequest
+{
+	public string Usuario1 { get; set; }
+	public int NuevoIdServicio { get; set; }
+}
+
+public class CambiarEstatusRequest
+{
+	public int IdServicio { get; set; }
+	public bool? NuevoEstatus { get; set; }
+}
+
+public class UsuarioServicioCotizador
+{
+	public string Nombre { get; set; }
+	public string PrimerApellido { get; set; }
+	public string SegundoApellido { get; set; }
+	public string Telefono { get; set; }
+	public string Calle { get; set; }
+	public string Numero { get; set; }
+	public string CodigoPostal { get; set; }
+	public string Colonia { get; set; }
+	public string Usuario { get; set; }
+	public string Contrasenia { get; set; }
+	public bool EstatusUsuario { get; set; }
+	public DateTime? FechaInicio { get; set; }
+	public DateTime? FechaFin { get; set; }
+	public decimal Precio { get; set; }
+	public DateTime? FechaPago { get; set; }
+	public bool EstatusServicio { get; set; }
+	public decimal PrecioLote { get; set; }
+	public int Cantidad { get; set; }
+	public string Modelo { get; set; }
+}
+
+
+public class UsuarioLoginServ
+{
+	public string Nombre { get; set; }
+	public string PrimerApellido { get; set; }
+	public string SegundoApellido { get; set; }
+	public int Telefono { get; set; }
+	public string Calle { get; set; }
+	public string Numero { get; set; }
+	public string CodigoPostal { get; set; }
+	public string Colonia { get; set; }
+	public string Usuario { get; set; }
+	public string Contrasenia { get; set; }
+	public bool EstatusUsuario { get; set; } // Este debe ser BIT en la base de datos, usa 0 o 1 en la llamada al procedimiento
+	public int IdServicio { get; set; }
+	public bool EstatusCliente { get; set; }
+}
 
 
 

@@ -1,0 +1,633 @@
+[
+  {
+    "ContainingType": "HealtPlus.Controllers.AlertaController",
+    "Method": "getAlerta",
+    "RelativePath": "api/Alerta/getAlerta/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.AlertaController",
+    "Method": "getAlertas",
+    "RelativePath": "api/Alerta/getAlertas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "AgregarEnfermero",
+    "RelativePath": "api/Healt/AgregarEnfermero",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PersonaEnfermero",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "AgregarHorario",
+    "RelativePath": "api/Healt/AgregarHorario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "healt_plus.Models.Horario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "AgregarPaciente",
+    "RelativePath": "api/Healt/AgregarPaciente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PersonaPaciente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "AgregarPacienteEnfermero",
+    "RelativePath": "api/Healt/AgregarPacienteEnfermero",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "healt_plus.Models.PacienteEnfermero",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "AgregarPadecimientos",
+    "RelativePath": "api/Healt/AgregarPadecimientos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "healt_plus.Models.Padecimiento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "BuscarEPorNombre",
+    "RelativePath": "api/Healt/BuscarEPorNombre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "BuscarPorNombre",
+    "RelativePath": "api/Healt/BuscarPorNombre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "BuscarXEstatus",
+    "RelativePath": "api/Healt/BuscarXEstatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estatus",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "CambiarEstatusServicio",
+    "RelativePath": "api/Healt/CambiarEstatusServicio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "CambiarEstatusRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "InsertarUsuarioCliente",
+    "RelativePath": "api/Healt/CotizadorCliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UsuarioServicioCotizador",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "EliminarHorarioo",
+    "RelativePath": "api/Healt/EliminarHorarioo/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "EliminarPadecimiento",
+    "RelativePath": "api/Healt/EliminarPadecimiento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "InsertarUsuarioCliente",
+    "RelativePath": "api/Healt/InsertarUsuarioCliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UsuarioLoginServ",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ListarEnfermeros",
+    "RelativePath": "api/Healt/ListarEnfermeros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ListarHorarios",
+    "RelativePath": "api/Healt/ListarHorarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ListarPacientes",
+    "RelativePath": "api/Healt/ListarPacientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ListarPadecimientos",
+    "RelativePath": "api/Healt/ListarPadecimientos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "Login",
+    "RelativePath": "api/Healt/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UsuarioLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "LoginService",
+    "RelativePath": "api/Healt/loginService",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UsuarioLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ModificarEnfermero",
+    "RelativePath": "api/Healt/ModificarEnfermero/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "PersonaEnfermero",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ModificarEstatusPaciente",
+    "RelativePath": "api/Healt/ModificarEstatusPaciente/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "PersonaPaciente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ModificarHorario",
+    "RelativePath": "api/Healt/ModificarHorario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "healt_plus.Models.Horario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ModificarIdServicio",
+    "RelativePath": "api/Healt/ModificarIdServicio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ModificarIdServicioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ModificarPaciente",
+    "RelativePath": "api/Healt/ModificarPaciente/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "PersonaPaciente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ModificarPadecimiento",
+    "RelativePath": "api/Healt/ModificarPadecimiento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "healt_plus.Models.Padecimiento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ObtenerInformacionServicio",
+    "RelativePath": "api/Healt/ObtenerInformacionServicio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "ObtenerInformacionServicio",
+    "RelativePath": "api/Healt/ObtenerInformacionUsuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "PacientesPorEdad",
+    "RelativePath": "api/Healt/PacientesPorEdad",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "PacientesXPadecimiento",
+    "RelativePath": "api/Healt/PacientesXPadecimiento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "RitmoDia",
+    "RelativePath": "api/Healt/RitmoDia/{idPaciente}/{fecha}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.HealtController",
+    "Method": "VerPacientesXEnfermero",
+    "RelativePath": "api/Healt/VerPacientesXEnfermero/{idEnfermero}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnfermero",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.LogController",
+    "Method": "logIn",
+    "RelativePath": "api/Log/in",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "contrasenia",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "healt_plus.Controllers.MonitoreSaludController",
+    "Method": "RegistarMonitoreoSalud",
+    "RelativePath": "api/MonitoreSalud/registrarMonitoreoSalud",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ms",
+        "Type": "healt_plus.Models.DatosMonitoreoSalud",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.PacienteController",
+    "Method": "AgregarPaciente",
+    "RelativePath": "api/Paciente/agregarPaciente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paciente",
+        "Type": "HealtPlus.Models.DatosPaciente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.PacienteController",
+    "Method": "getPacientes",
+    "RelativePath": "api/Paciente/getPacientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.PacienteController",
+    "Method": "getPacienteEnfermero",
+    "RelativePath": "api/Paciente/getPacientes/{idEnfermero}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnfermero",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.RecordatorioController",
+    "Method": "cambiarEstatus",
+    "RelativePath": "api/Recordatorio/cambiarEstatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.RecordatorioController",
+    "Method": "getRecordatorios",
+    "RelativePath": "api/Recordatorio/getRecordatorios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealtPlus.Controllers.RecordatorioController",
+    "Method": "getRecordatorios",
+    "RelativePath": "api/Recordatorio/getRecordatorios/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
