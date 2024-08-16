@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precios</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <style>
+    /* Fondo general */
+body {
+  background-color: #f3f6f9; /* Un gris claro y suave */
+}
+
+/* Fondo de la sección de precios */
+.pricing-section {
+  background-color: #2e3b4e; /* Un color verde-azulado oscuro */
+  padding: 3rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de las tarjetas */
+.pricing-card {
+  background-color: white; /* Blanco para el contraste */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Colores personalizados de títulos */
+.pricing-card .title {
+  color: #333; /* Un gris oscuro */
+}
+
+.pricing-card .subtitle {
+  color: #555; /* Un gris medio */
+}
+
+/* Espaciado entre tarjetas */
+.columns.is-centered .column {
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo del encabezado */
+h1.title {
+  color: #00d1b2; /* Un verde-azulado brillante */
+  margin-bottom: 2rem;
+}
+
+  </style>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="../../source/img/Logo.png" alt="Logo">
+
+            </a>
+
+
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="../home_ac/index.html" class="navbar-item">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="../info_services/index.html">
+                    Mi servicio
+                </a>
+                <a class="navbar-item" href="../upgrade_service/index.html">
+                    Servicios
+                </a>
+            </div>
+
+            
+        </div>
+    </nav>
+  <section class="section">
+    <div class="container pricing-section">
+      <h1 class="title has-text-centered has-text-white">Precios</h1>
+      <div class="columns is-centered">
+        <!-- Plan Gratuito -->
+        <div class="column is-one-third">
+          <div class="pricing-card has-text-centered">
+            <div>
+              <p class="title">Mes Gratis</p>
+              <p class="subtitle">$0</p>
+              <p class="content">UNA PRUEBA POR CLIENTE</p>
+              <ul>
+                <li>- Un smartwatch</li>
+                <li>- Mantenimiento y capacitación a la app.</li>
+                <li>- Almacenamiento de datos.</li>
+                <li>- Atención al cliente personalizada.</li>
+              </ul>
+            </div>
+            <button class="button is-primary" id="plan-gratis">Prueba gratis</button>
+        </div>
+        </div>
+        <!-- Plan Mensual -->
+        <div class="column is-one-third">
+          <div class="pricing-card has-text-centered">
+            <div>
+              <p class="title">Mensualidad</p>
+              <p class="subtitle">$2,600</p>
+              <p class="content">PAGO POR MENSUALIDAD</p>
+              <ul>
+                <li>- Lote de 12 smartwatches</li>
+                <li>- Mantenimiento y capacitación a la app.</li>
+                <li>- Almacenamiento de datos.</li>
+                <li>- Atención al cliente personalizada.</li>
+              </ul>
+            </div>
+            <button class="button is-success" id="plan-mensual">Contratar</button>
+
+          </div>
+        </div>
+        <!-- Plan Anual -->
+        <div class="column is-one-third">
+          <div class="pricing-card has-text-centered">
+            <div>
+              <p class="title">Anualidad</p>
+              <p class="subtitle">$30,000</p>
+              <p class="content">PAGO POR ANUALIDAD</p>
+              <ul>
+                <li>- Lote de 30 smartwatches</li>
+                <li>- Mantenimiento y capacitación a la app.</li>
+                <li>- Almacenamiento de datos.</li>
+                <li>- Atención al cliente personalizada.</li>
+                <li>- Ahorro de un mes por contrato</li>
+                <li>- Ofertas mensuales del servicio o de los smartwatches</li>
+              </ul>
+            </div>
+            <button class="button is-success" id="plan-anual">Contratar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+        // Asignar eventos de clic para cada botón
+        $('#plan-gratis').click(function() {
+            enviarDatos(1);
+        });
+
+        $('#plan-mensual').click(function() {
+            enviarDatos(2);
+        });
+
+        $('#plan-anual').click(function() {
+            enviarDatos(3);
+        });
+
+        function enviarDatos(nuevoIdServicio) {
+            // Obtener el usuario del almacenamiento local
+            var usuario = localStorage.getItem('user');
+
+            $.ajax({
+                url: 'http://localhost:5140/api/Healt/ModificarIdServicio',
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    usuario1: usuario,
+                    nuevoIdServicio: nuevoIdServicio
+                }),
+                success: function(response) {
+                    Swal.fire({
+                                title: 'Bienvenido',
+                                text: 'Tu servicio ha sido actualizado.',
+                                icon: 'success',
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then(() => {
+                                
+                            });
+                },
+                error: function(error) {
+                    alert('Ocurrió un error al enviar los datos.');
+                }
+            });
+        }
+    });
+</script>

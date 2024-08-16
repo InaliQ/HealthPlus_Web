@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="-YEiqACIFhOaQUH3v93v" name="Page-1">
-        <mxGraphModel dx="474" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="832" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -53,7 +53,7 @@
                     <mxGeometry x="440" y="50" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Listar enfermeros&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="10" y="10" width="230" height="30" as="geometry"/>
+                    <mxGeometry y="10" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;fontSize=14;dashed=1;" parent="1" source="9" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -162,9 +162,6 @@
                 </mxCell>
                 <mxCell id="44" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="495" y="360" width="10" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="58" value="&lt;p style=&quot;margin-left:72.0pt;mso-add-space:auto;&#10;text-indent:-18.0pt;mso-list:l0 level2 lfo1&quot; class=&quot;MsoListParagraph&quot;&gt;&lt;span style=&quot;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin&quot;&gt;&lt;span style=&quot;mso-list:Ignore&quot;&gt;a.&lt;span style=&quot;font:7.0pt &amp;quot;Times New Roman&amp;quot;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#10;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;Diagrama de Clases. &lt;/p&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="10" y="10" width="240" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

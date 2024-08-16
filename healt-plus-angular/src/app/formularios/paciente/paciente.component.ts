@@ -90,14 +90,35 @@ export class PacienteComponent {
     });
   }
 
-  guardarOEditarPaciente() {
+  validarFormulario(): boolean {
     this.formulario = true;
+  
+    // Validar campos individuales
+    if (this.ValidarNombre || this.ValidarpApellido || this.ValidarsApellido || this.ValidarFecha ||
+        this.ValidarTel || this.ValidarLongTel || this.ValidarCalle || this.ValidarNum || 
+        this.ValidarCol || this.ValidarCP || this.ValidarLongCP || this.ValidarAltura ||
+        this.ValidarPeso || this.ValidarTipoS) {
+      return false;
+    }
+  
+    return true;
+  }
+  
+  guardarOEditarPaciente() {
+    if (!this.validarFormulario()) {
+      this._servicioA.error('Por favor, completa todos los campos obligatorios.');
+      return;
+    }
+  
+    this.formulario = true;
+    
     if (this.isEdit) {
       this.editarPaciente();
     } else {
       this.agregarPaciente();
     }
   }
+  
 
 
   agregarPaciente() {
@@ -181,6 +202,7 @@ export class PacienteComponent {
   }
 
   limpiar() {
+    this.formulario = false;
     this.isEdit = false;
     this.idPaciente=0;
     this.nombre= '';

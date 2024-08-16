@@ -9,7 +9,7 @@ import { AlertasService } from '../../services/alertas.service';
   styleUrl: './horarios.component.css'
 })
 export class HorariosComponent {
-
+  formulario = false;
   isEdit = false;
   idHorario=0;
   horaInicio= '';
@@ -39,8 +39,19 @@ export class HorariosComponent {
   }
 
   guardarOEditarHorario() {
+    this.formulario = true;
+    
+    if (this.ValidarHoraInicio || this.ValidarHoraFim) {
+      this._servicioA.error('Por favor, completa todos los campos obligatorios.');
+      return; 
+    }
+  
     if (this.isEdit) {
-      this.editarHorario();
+      this._servicioA.confirmarEditar('Se guardarán los cambios').then((result) => {
+        if (result.isConfirmed) {
+          this.editarHorario();
+        }
+      });
     } else {
       this.agregarHorario();
     }
@@ -66,12 +77,13 @@ export class HorariosComponent {
   }
 
   editarHorario() {
-    const nuevoHorario: IHorario = {
+    this._servicioA.confirmarEditar('Se guardarán los cambios. ¿Deseas continuar?').then((result) => {
+      if (result.isConfirmed) {
+        const nuevoHorario: IHorario = {
           idHorario: this.idHorario,
           horaInicio: this.horaInicio,
           horaFin: this.horaFin
         };
-    
         this._servicio.modificarHorario(nuevoHorario).subscribe({
           next: (response) => {
             console.log(response);
@@ -81,9 +93,14 @@ export class HorariosComponent {
           },
           error: (e) => {
             console.error('Error al editar horario:', e);
+            this._servicioA.error('No se pudo editar el horario');
           }
         });
+      }
+    });
   }
+
+  
 
   eliminarHorario(horario: IHorario){
     this._servicio.eliminarHorario(horario.idHorario ?? 0).subscribe({
@@ -93,7 +110,16 @@ export class HorariosComponent {
     })
   }
 
+  get ValidarHoraInicio() {
+    return this.formulario && this.horaInicio.trim().length === 0;
+  }
+
+  get ValidarHoraFim() {
+    return this.formulario && this.horaFin.trim().length === 0;
+  }
+
   limpiar() {
+    this.formulario = false;
     this.idHorario = 0;
     this.horaInicio = '';
     this.horaFin = '';
